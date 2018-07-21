@@ -27,6 +27,7 @@ public class Methods {
 
 	public static void main(String[] args) {
 		
+		// new creates objects
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Enter Value of a: ");
