@@ -33,6 +33,12 @@ class MyTask extends Thread{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
+			if(i==5){
+				ArithmeticException ae = new ArithmeticException("Thread Crashed");
+				throw ae;
+			}
+			
 			System.out.println("$$MyTask$$ "+i);
 		}
 	}
@@ -109,6 +115,8 @@ public class ThreadsDemo {
 			}// J3
 			System.out.println("**Main** "+i);
 		}
+		
+		
 		
 		
 		
