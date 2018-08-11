@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New User</title>
+</head>
+<body>
+	<center>
+		<br/>
+		<br/>
+		<h2>New User, Register Here</h2>
+		
+		<form action="FrontController" method="post">
+			Enter Your Name: <input type="text" name="txtName" placeholder="eg: John Watson"/>
+			<br/>
+			Enter Your Email: <input type="text" name="txtEmail" placeholder="eg: john@example.com"/>
+			<br/>
+			Enter Your Password: <input type="password" name="txtPassword" placeholder="min 6 characters"/>
+			<br/>
+			<input type="hidden" name="reqType" value="register"/>
+			<input type="submit" value="Register Me"/>
+		</form>
+	</center>
+</body>
+</html>
