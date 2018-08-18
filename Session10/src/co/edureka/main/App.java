@@ -14,6 +14,8 @@ import org.hibernate.criterion.Restrictions;
 
 import co.edureka.model.Employee;
 
+//Jar Files: https://www.dropbox.com/s/gsmrf05u8phsu62/J2EEJars_HSJ.zip?dl=0
+
 public class App {
 
 	public static void main(String[] args) {
@@ -56,6 +58,9 @@ public class App {
 			
 			session = factory.openSession(); // Create Connection with DB
 			
+			//session1 = factory.openSession(); // Create Connection with DB
+			//session2 = factory.openSession(); // Create Connection with DB
+			
 			transaction = session.beginTransaction(); // Execute SQL as Transactions
 			
 			// Save data in Database.
@@ -85,14 +90,28 @@ public class App {
 			//}
 			
 			// 2.Criteria API, No HQL
-			Criteria criteria = session.createCriteria(Employee.class);
+			/*Criteria criteria = session.createCriteria(Employee.class);
 			criteria.add(Restrictions.gt("salary", 50000)); // where salary > 50000
 			
 			List<Employee> employees = criteria.list();
 			
 			for(Employee e : employees){
 				System.out.println(e);
-			}
+			}*/
+			
+			Employee emp1 = (Employee)session.get(Employee.class, 1);
+			Employee emp2 = (Employee)session.get(Employee.class, 2);
+			
+			System.out.println(emp1);
+			System.out.println(emp2);
+			
+			System.out.println(">>>>>>Re Fetch the same data>>>>>>");
+			
+			Employee emp3 = (Employee)session.get(Employee.class, 1);
+			Employee emp4 = (Employee)session.get(Employee.class, 2);
+			
+			System.out.println(emp3);
+			System.out.println(emp4);
 			
 			transaction.commit();
 			

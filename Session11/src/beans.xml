@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+   <!-- <bean id="con1" class="co.edureka.bean.Connection" scope="prototype"> -->
+   <!-- <bean id="con1" class="co.edureka.bean.Connection" init-method="initConnection" destroy-method="destroyConnection">
+   		<property name="driverName" value="x.y.z.o"/>
+   		<property name="url" value="jdbc://anyurl"/>
+   		<property name="user" value="jennie.abc"/>
+   		<property name="password" value="jennie@abc"/>
+   		<property name="poolSize" value="200"/>
+   </bean>
+   
+   <bean class="co.edureka.bean.PostProcessor"/> -->
+   
+ <!--   <bean id="con2" class="co.edureka.bean.Connection">
+   		<property name="driverName" value="p.q.r.n"/>
+   		<property name="url" value="jdbc://myurl"/>
+   		<property name="user" value="sia"/>
+   		<property name="password" value="sia123"/>
+   		<property name="poolSize" value="100"/>
+   </bean>
+    -->
+    
+    <bean id="fRef" class="co.edureka.bean.Father">
+   		<property name="fname" value="John"/>
+   		<property name="lname" value="Watson"/>
+   		<property name="wealth" value="100000"/>
+   </bean>
+   
+   <bean id="cRef" class="co.edureka.bean.Child" parent="fRef">
+   		<property name="fname" value="Fionna"/>
+   		<property name="vehicles" value="3"/>
+   		<property name="compName" value="ABC International"/>
+   </bean>
+
+</beans>
