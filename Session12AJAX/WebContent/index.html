@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table</title>
+
+<script type="text/javascript">
+
+	var request;
+
+	function sendInfo(){
+
+		var num = document.tableForm.txtNum.value;
+		var url = "printTable.jsp?number="+num;
+
+		request = new XMLHttpRequest();
+
+		try{
+			request.onreadystatechange = getInfo;
+			request.open("GET",url,true);
+			request.send();
+		}catch(e){
+			alert("Some Exception"+e);
+		}
+	}
+
+	function getInfo(){
+		if(request.readyState == 4){
+			var res = request.responseText;
+			document.getElementById("data").innerHTML = res;
+		}
+	}
+
+</script>
+
+</head>
+<body>
+
+<center>
+	<br/>
+	<h3>Table of Number</h3>
+	<form name="tableForm">
+		Enter a Number<input type="text" name="txtNum" placeholder="eg:5" onkeyup="sendInfo()"/>
+		<br/>
+		<!-- <input type="button" value="Get Table" onclick="sendInfo()"/> -->
+	</form>
+	
+	<h4>Table Is:</h4>
+	<i>
+	<span id="data">
+		
+	</span>
+	</i>
+</center>
+
+</body>
+</html>
