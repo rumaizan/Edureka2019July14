@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   
+   <class name="co.edureka.model.Product" table="PRODUCTS" discriminator-value="Product">
+      
+      <id name="pid" column="PID">
+         <generator class="increment"/>
+      </id>
+      <discriminator column="TYPE" type="string"/>
+      <property name="name" column="NAME" />
+      <property name="price" column="PRICE" />
+      
+      <subclass name="co.edureka.model.TV" discriminator-value="TV">
+      	 <property name="screenSize" column="SCREENSIZE" />
+     	 <property name="model" column="MODEL" />
+     	 
+     	 <subclass name="co.edureka.model.LedTV" discriminator-value="LED">
+	     	 <property name="type" column="LEDTYPE" />
+      	</subclass>
+     	 
+      </subclass>
+      
+   </class>
+   
+</hibernate-mapping>
